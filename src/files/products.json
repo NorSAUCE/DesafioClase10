@@ -1,0 +1,57 @@
+[
+	{
+		"code": "651",
+		"title": "xacxa",
+		"description": "cacac",
+		"category": "ascc",
+		"price": "2500",
+		"stock": "6",
+		"thumbnail": "acasc",
+		"status": true,
+		"id": 1
+	},
+	{
+		"code": "bfbd",
+		"title": "dbdb",
+		"description": "bzdfb",
+		"category": "bdfbd",
+		"price": "2500",
+		"stock": "6",
+		"thumbnail": "bdbdb",
+		"status": true,
+		"id": 2
+	},
+	{
+		"code": "csca",
+		"title": "asca",
+		"description": "cascsa",
+		"category": "casc",
+		"price": "2500",
+		"stock": "6",
+		"thumbnail": "scas",
+		"status": true,
+		"id": 3
+	},
+	{
+		"code": "sad",
+		"title": "dwed",
+		"description": "dada",
+		"category": "dd",
+		"price": "2500",
+		"stock": "6",
+		"thumbnail": "dd",
+		"status": true,
+		"id": 4
+	},
+	{
+		"code": "1256",
+		"title": "wd",
+		"description": "wd",
+		"category": "wd",
+		"price": "2500",
+		"stock": "6",
+		"thumbnail": "wd",
+		"status": true,
+		"id": 5
+	}
+]
