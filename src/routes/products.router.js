@@ -22,14 +22,14 @@ router.get('/', async(req, res) => {
         };
 
         //res.send(response);
-        res.render("home.handlebars", { nuevoArreglo })
+        res.render("realTimeProducts.handlebars", { nuevoArreglo })
     } else {
         const response = {
             status: "OK",
             data: products,
         };
         //res.send(response)
-        res.render("home.handlebars", { products })
+        res.render("realTimeProducts.handlebars", { products })
     }
 
 });
@@ -61,18 +61,11 @@ router.post('/', async(req, res) => {
 
     const result = await productManager.addProduct(product);
      
-    //Valido el resultado de la búsqueda
-    if (result !==-1 ) {
-        const io = req.app.get('socketio');
-        io.emit("showProducts", await productManager.getProducts());
-    };
+   
+   
 
-    //Valido el resultado de la búsqueda
-     const response = result !==-1 
-     ? { status: "Success", data: result} 
-     : { status: "FOUND", data: `Ya existe el producto que desea crear!` };
-     //Valido marco el estado según el resultado
-     const statusCode = result!==-1 ? 200 : 404;
+   
+    
 
      //muestro resultado
      //res.status(statusCode).json(response);
@@ -119,7 +112,7 @@ router.delete('/:id', async(req,res)=>{
     //Valido el resultado de la búsqueda
     if (result !==-1 ) {
         const io = req.app.get('socketio');
-        io.emit("showProducts", await productManager.getProducts());
+        io.emit('showProducts', await productManager.getProducts());
     };
 
 

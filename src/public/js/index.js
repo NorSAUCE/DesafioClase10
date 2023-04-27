@@ -1,4 +1,1 @@
-const  addProduct = document.getElementById('addProduct')
-addProduct.addEventListener('click', (event) => {
-    window.location= "/";
-});
+const socket = io();
