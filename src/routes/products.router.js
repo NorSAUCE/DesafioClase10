@@ -48,10 +48,6 @@ const statusCode = product!==-1 ? 200 : 404;
 //muestro resultado
 res.status(statusCode).json(response);
 
-    /* if (!product) {
-        return res.send(404).send({ error: 'product not found' });
-    }
-    res.send({ status: ' success', product }); */
 })
 
 router.post('/', async(req, res) => {
@@ -81,16 +77,6 @@ router.post('/', async(req, res) => {
      //muestro resultado
      //res.status(statusCode).json(response);
      res.redirect("/");
-
-/*      Swal.fire({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        title: `${result} se agrego el producto`,
-        icon: 'success'
-    }); */
-
 
 });
 
@@ -136,7 +122,7 @@ router.delete('/:id', async(req,res)=>{
         io.emit("showProducts", await productManager.getProducts());
     };
 
-    /* res.send({status: 'success'}) */
+
 
     const response = result !==-1 
     ? { status: "Success", data: result} 
