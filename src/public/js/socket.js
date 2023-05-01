@@ -1,4 +1,3 @@
-// Conecto el socket para comunicarnos con el server
 const socket = io();
 
 const container = document.getElementById('container');

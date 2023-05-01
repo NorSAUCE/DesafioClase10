@@ -1,0 +1,19 @@
+<h1 style="color:darkblue;">Bienvenidos al servidor express - Comisión 39760</h1> <br>
+<h1>Vista de productos</h1> <br>
+
+<div>
+    <h1>Productos disponibles</h1>
+    {{#each products}}
+    <div>
+        <h1>Código: {{this.code}}</h1>
+        <p>Nombre: {{this.title}}</p>
+        <p>Descripción: {{this.description}}</p>
+        <p>Precio: ${{this.price}}</p>
+        <p>Stock: ${{this.stock}}</p>
+    </div>
+    {{/each}}
+</div>
+
+<button id="addProduct" class="btn btn-secondary"> Ir a Cargar Productos</button>
+
+<script src="/js/index.js"></script>

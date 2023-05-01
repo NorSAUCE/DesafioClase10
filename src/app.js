@@ -2,7 +2,7 @@ import express from 'express'
 import handlebars from 'express-handlebars'
 import __dirname from './utils.js'
 import {Server} from 'socket.io'
-import viewsRouter from './routes/views.router.js'
+import viewsProdRouter from './routes/viewsProd.router.js'
 import productRouter from './routes/products.router.js'
 import ProductManager from './managers/productManager.js'
 const app = express()
@@ -16,7 +16,7 @@ app.set('views', `${__dirname}/views`)
 app.set('view engine', 'handlebars')
 
 app.use('/api/products', productRouter);
-app.use('/', viewsRouter)
+app.use('/realtimeproducts', viewsProdRouter)
 
 const server = app.listen(8080, () => console.log('server up on port 8080'))
 

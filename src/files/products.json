@@ -20,5 +20,16 @@
 		"thumbnail": "sddsds",
 		"status": true,
 		"id": 2
+	},
+	{
+		"code": "kjnkl",
+		"title": "klnlkn",
+		"description": "lkmlkm",
+		"category": ";lkk",
+		"price": "2500",
+		"stock": "6",
+		"thumbnail": "lkmlm",
+		"status": true,
+		"id": 3
 	}
 ]

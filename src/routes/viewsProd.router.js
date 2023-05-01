@@ -1,12 +1,12 @@
-import {Router} from 'express'
+import { Router } from 'express';
 import ProductManager from '../managers/productManager.js';
 
-const router = Router()
+const router = Router();
 const productManager = new ProductManager('../DesafioSocketio/src/files/products.json');
 
 router.get('/', async (req, res) => { 
     const products = await productManager.getProducts()
-    res.render('home',{ products });
+    res.render('realTimeProducts', { products });
 });
 
 export default router;

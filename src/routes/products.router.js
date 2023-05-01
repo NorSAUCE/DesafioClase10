@@ -22,14 +22,14 @@ router.get('/', async(req, res) => {
         };
 
         //res.send(response);
-        res.render("realTimeProducts.handlebars", { nuevoArreglo })
+        res.render("products.handlebars", { nuevoArreglo })
     } else {
         const response = {
             status: "OK",
             data: products,
         };
         //res.send(response)
-        res.render("realTimeProducts.handlebars", { products })
+        res.render("products.handlebars", { products })
     }
 
 });
@@ -48,6 +48,10 @@ const statusCode = product!==-1 ? 200 : 404;
 //muestro resultado
 res.status(statusCode).json(response);
 
+    /* if (!product) {
+        return res.send(404).send({ error: 'product not found' });
+    }
+    res.send({ status: ' success', product }); */
 })
 
 router.post('/', async(req, res) => {
@@ -61,15 +65,32 @@ router.post('/', async(req, res) => {
 
     const result = await productManager.addProduct(product);
      
-   
-   
+    //Valido el resultado de la búsqueda
+    if (result !==-1 ) {
+        const io = req.app.get('socketio');
+        io.emit("showProducts", await productManager.getProducts());
+    };
 
-   
-    
+    //Valido el resultado de la búsqueda
+     const response = result !==-1 
+     ? { status: "Success", data: result} 
+     : { status: "FOUND", data: `Ya existe el producto que desea crear!` };
+     //Valido marco el estado según el resultado
+     const statusCode = result!==-1 ? 200 : 404;
 
      //muestro resultado
      //res.status(statusCode).json(response);
-     res.redirect("/");
+     res.redirect("/realTimeProducts");
+
+/*      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        title: `${result} se agrego el producto`,
+        icon: 'success'
+    }); */
+
 
 });
 
@@ -112,10 +133,10 @@ router.delete('/:id', async(req,res)=>{
     //Valido el resultado de la búsqueda
     if (result !==-1 ) {
         const io = req.app.get('socketio');
-        io.emit('showProducts', await productManager.getProducts());
+        io.emit("showProducts", await productManager.getProducts());
     };
 
-
+    /* res.send({status: 'success'}) */
 
     const response = result !==-1 
     ? { status: "Success", data: result} 
